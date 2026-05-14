@@ -68,7 +68,6 @@ nav{
 /* HERO */
 
 .hero{
-
   width:95%;
   margin:auto;
   margin-top:20px;
@@ -85,11 +84,11 @@ nav{
   background-position:center;
   background-repeat:no-repeat;
 
-  padding:180px 7% 60px;
+  padding:180px 7% 140px;
 
   position:relative;
 
-  overflow:hidden;
+  overflow:visible;
 }
 
 .hero-content{
@@ -164,6 +163,16 @@ nav{
   grid-template-columns:repeat(4,1fr);
 
   gap:20px;
+
+  position:absolute;
+
+  bottom:-60px;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  z-index:10;
 }
 
 .stat-box{
