@@ -11,6 +11,83 @@
 
 <style>
 
+/* SIDE MENU */
+
+.side-menu{
+  position:fixed;
+  right:20px;
+  top:20px;
+
+  width:260px;
+  height:95vh;
+
+  background:linear-gradient(to bottom,#07140f,#0b241b);
+
+  border-radius:30px;
+
+  padding:35px 25px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.side-logo{
+  font-size:34px;
+  font-weight:700;
+  color:#f0d08b;
+  margin-bottom:40px;
+}
+
+.menu-links{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.menu-links a{
+  text-decoration:none;
+  color:white;
+
+  font-size:20px;
+  font-weight:500;
+
+  padding:18px 20px;
+
+  border-radius:18px;
+
+  transition:0.3s;
+}
+
+.menu-links a:hover{
+  background:rgba(255,255,255,0.08);
+}
+
+.menu-links a:first-child{
+  background:linear-gradient(to right,#123d2d,#1f5a44);
+}
+
+.logout a{
+  text-decoration:none;
+  color:white;
+
+  font-size:20px;
+  font-weight:500;
+
+  padding:18px 20px;
+
+  border-radius:18px;
+
+  display:block;
+}
+
+.logout a:hover{
+  background:rgba(255,255,255,0.08);
+}
+  
+
 *{
   margin:0;
   padding:0;
@@ -84,7 +161,8 @@ nav{
   background-position:center;
   background-repeat:no-repeat;
 
-  padding:180px 7% 180px;
+  padding:160px 6% 80px;
+padding-right:320px;
 
   position:relative;
 
@@ -430,6 +508,30 @@ nav{
   </div>
 
 </section>
+<!-- SIDE MENU -->
 
+<div class="side-menu">
+
+  <div class="side-logo">
+    FinNova
+  </div>
+
+  <div class="menu-links">
+
+    <a href="">🏠 Dashboard</a>
+    <a href="">💳 Transactions</a>
+    <a href="">💼 Budgets</a>
+    <a href="">🎯 Goals</a>
+    <a href="">📊 Analytics</a>
+    <a href="">📄 Reports</a>
+    <a href="">⚙️ Settings</a>
+
+  </div>
+
+  <div class="logout">
+    <a href="">🚪 Log Out</a>
+  </div>
+
+</div>
 </body>
 </html>
