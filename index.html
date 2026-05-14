@@ -61,8 +61,8 @@ body{
 
   width:280px;
   height:96vh;
-overflow-y:auto;
-padding-bottom:40px;
+  overflow-y:auto;
+  padding-bottom:40px;
 
   background:linear-gradient(to bottom,#07140f,#0b241b);
 
@@ -153,6 +153,27 @@ nav{
   color:white;
   font-size:17px;
   font-weight:500;
+}
+
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.lang-btn{
+  background:transparent;
+  border:2px solid #f0d08b;
+  color:#f0d08b;
+
+  padding:12px 22px;
+
+  border-radius:14px;
+
+  font-size:15px;
+  font-weight:600;
+
+  cursor:pointer;
 }
 
 .nav-btn{
@@ -449,9 +470,17 @@ FinNova
 <a href="">Contact</a>
 </div>
 
-<button class="nav-btn">
+<div class="nav-right">
+
+<button class="lang-btn" onclick="toggleLanguage()">
+AR
+</button>
+
+<button class="nav-btn" id="start-btn">
 Get Started
 </button>
+
+</div>
 
 </nav>
 
@@ -461,21 +490,21 @@ Get Started
 
 <div class="hero-content">
 
-<h1>
+<h1 id="hero-title">
 Take control of <span>your money</span>
 </h1>
 
-<p>
+<p id="hero-text">
 FinNova helps you manage your finances, save more, and achieve your goals with smart AI-powered insights.
 </p>
 
 <div class="hero-buttons">
 
-<button class="btn-primary">
+<button class="btn-primary" id="main-btn">
 Get Started
 </button>
 
-<button class="btn-secondary">
+<button class="btn-secondary" id="demo-btn">
 Watch Demo
 </button>
 
@@ -489,22 +518,22 @@ Watch Demo
 
 <div class="stat-box">
 <h2>10K+</h2>
-<p>Active Users</p>
+<p id="users-text">Active Users</p>
 </div>
 
 <div class="stat-box">
 <h2>98%</h2>
-<p>Satisfaction</p>
+<p id="satisfaction-text">Satisfaction</p>
 </div>
 
 <div class="stat-box">
 <h2>Secure</h2>
-<p>Bank-level Security</p>
+<p id="security-text">Bank-level Security</p>
 </div>
 
 <div class="stat-box">
 <h2>24/7</h2>
-<p>Support</p>
+<p id="support-text">Support</p>
 </div>
 
 </div>
@@ -515,7 +544,7 @@ Watch Demo
 
 <section class="features">
 
-<h1 class="features-title">
+<h1 class="features-title" id="features-title">
 Why choose FinNova?
 </h1>
 
@@ -525,9 +554,9 @@ Why choose FinNova?
 
 <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
 
-<h3>Smart Tracking</h3>
+<h3 id="track-title">Smart Tracking</h3>
 
-<p>
+<p id="track-text">
 Track income and expenses in real-time with advanced analytics.
 </p>
 
@@ -537,9 +566,9 @@ Track income and expenses in real-time with advanced analytics.
 
 <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png">
 
-<h3>Set Goals</h3>
+<h3 id="goal-title">Set Goals</h3>
 
-<p>
+<p id="goal-text">
 Create savings goals and stay motivated to achieve them faster.
 </p>
 
@@ -549,9 +578,9 @@ Create savings goals and stay motivated to achieve them faster.
 
 <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
 
-<h3>AI Insights</h3>
+<h3 id="ai-title">AI Insights</h3>
 
-<p>
+<p id="ai-text">
 Receive smart recommendations based on your spending habits.
 </p>
 
@@ -561,9 +590,9 @@ Receive smart recommendations based on your spending habits.
 
 <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png">
 
-<h3>Secure & Private</h3>
+<h3 id="secure-title">Secure & Private</h3>
 
-<p>
+<p id="secure-text">
 Your data is protected with high-level encryption and security.
 </p>
 
@@ -583,7 +612,153 @@ function closeMenu(){
 document.getElementById("sideMenu").style.right = "-320px";
 }
 
+/* LANGUAGE */
+
+let currentLanguage = localStorage.getItem("language") || "en";
+
+function applyLanguage(){
+
+if(currentLanguage === "ar"){
+
+document.documentElement.lang = "ar";
+document.body.style.direction = "rtl";
+
+document.getElementById("hero-title").innerHTML =
+'تحكم الكامل في <span>أموالك</span>';
+
+document.getElementById("hero-text").innerHTML =
+'فين نوفا يساعدك بإدارة أموالك وتحقيق أهدافك المالية بذكاء.';
+
+document.getElementById("main-btn").innerHTML = "ابدأ الآن";
+document.getElementById("demo-btn").innerHTML = "مشاهدة";
+
+document.getElementById("start-btn").innerHTML = "ابدأ";
+
+document.getElementById("features-title").innerHTML =
+"لماذا تختار FinNova؟";
+
+document.getElementById("users-text").innerHTML =
+"مستخدم نشط";
+
+document.getElementById("satisfaction-text").innerHTML =
+"رضا العملاء";
+
+document.getElementById("security-text").innerHTML =
+"حماية قوية";
+
+document.getElementById("support-text").innerHTML =
+"دعم فني";
+
+document.getElementById("track-title").innerHTML =
+"تتبع ذكي";
+
+document.getElementById("track-text").innerHTML =
+"تابع مصروفاتك ودخلك بسهولة.";
+
+document.getElementById("goal-title").innerHTML =
+"حدد أهدافك";
+
+document.getElementById("goal-text").innerHTML =
+"أنشئ أهداف مالية وحققها.";
+
+document.getElementById("ai-title").innerHTML =
+"ذكاء اصطناعي";
+
+document.getElementById("ai-text").innerHTML =
+"تحليلات ذكية حسب استخدامك.";
+
+document.getElementById("secure-title").innerHTML =
+"آمن وخاص";
+
+document.getElementById("secure-text").innerHTML =
+"بياناتك محمية بالكامل.";
+
+document.querySelector(".lang-btn").innerHTML = "EN";
+
+}
+
+else{
+
+document.documentElement.lang = "en";
+document.body.style.direction = "ltr";
+
+document.getElementById("hero-title").innerHTML =
+'Take control of <span>your money</span>';
+
+document.getElementById("hero-text").innerHTML =
+'FinNova helps you manage your finances, save more, and achieve your goals with smart AI-powered insights.';
+
+document.getElementById("main-btn").innerHTML = "Get Started";
+document.getElementById("demo-btn").innerHTML = "Watch Demo";
+
+document.getElementById("start-btn").innerHTML = "Get Started";
+
+document.getElementById("features-title").innerHTML =
+"Why choose FinNova?";
+
+document.getElementById("users-text").innerHTML =
+"Active Users";
+
+document.getElementById("satisfaction-text").innerHTML =
+"Satisfaction";
+
+document.getElementById("security-text").innerHTML =
+"Bank-level Security";
+
+document.getElementById("support-text").innerHTML =
+"Support";
+
+document.getElementById("track-title").innerHTML =
+"Smart Tracking";
+
+document.getElementById("track-text").innerHTML =
+"Track income and expenses in real-time with advanced analytics.";
+
+document.getElementById("goal-title").innerHTML =
+"Set Goals";
+
+document.getElementById("goal-text").innerHTML =
+"Create savings goals and stay motivated to achieve them faster.";
+
+document.getElementById("ai-title").innerHTML =
+"AI Insights";
+
+document.getElementById("ai-text").innerHTML =
+"Receive smart recommendations based on your spending habits.";
+
+document.getElementById("secure-title").innerHTML =
+"Secure & Private";
+
+document.getElementById("secure-text").innerHTML =
+"Your data is protected with high-level encryption and security.";
+
+document.querySelector(".lang-btn").innerHTML = "AR";
+
+}
+
+}
+
+function toggleLanguage(){
+
+if(currentLanguage === "en"){
+currentLanguage = "ar";
+}
+
+else{
+currentLanguage = "en";
+}
+
+localStorage.setItem("language", currentLanguage);
+
+applyLanguage();
+
+}
+
+applyLanguage();
+
 </script>
 
 </body>
 </html>
+
+ماشتغلللللللللللل ليش 😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭
