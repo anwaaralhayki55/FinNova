@@ -11,34 +11,65 @@
 
 <style>
 
+/* MENU BUTTON */
+
+.menu-btn{
+  position:fixed;
+  top:25px;
+  right:25px;
+
+  width:55px;
+  height:55px;
+
+  background:#f0d08b;
+  color:#07140f;
+
+  border-radius:15px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:28px;
+  font-weight:bold;
+
+  cursor:pointer;
+
+  z-index:999;
+}
+
 /* SIDE MENU */
 
 .side-menu{
-  position:fixed;
-  right:20px;
-  top:20px;
 
-  width:260px;
-  height:95vh;
+  position:fixed;
+  top:0;
+  right:-320px;
+
+  width:300px;
+  height:100vh;
 
   background:linear-gradient(to bottom,#07140f,#0b241b);
 
-  border-radius:30px;
+  padding:40px 25px;
 
-  padding:35px 25px;
+  transition:0.4s;
 
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
+  z-index:1000;
+}
 
-  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+.close-btn{
+  color:white;
+  font-size:30px;
+  cursor:pointer;
+  margin-bottom:30px;
 }
 
 .side-logo{
   font-size:34px;
   font-weight:700;
   color:#f0d08b;
-  margin-bottom:40px;
+  margin-bottom:50px;
 }
 
 .menu-links{
@@ -48,6 +79,7 @@
 }
 
 .menu-links a{
+
   text-decoration:none;
   color:white;
 
@@ -67,36 +99,6 @@
 
 .menu-links a:first-child{
   background:linear-gradient(to right,#123d2d,#1f5a44);
-}
-
-.logout a{
-  text-decoration:none;
-  color:white;
-
-  font-size:20px;
-  font-weight:500;
-
-  padding:18px 20px;
-
-  border-radius:18px;
-
-  display:block;
-}
-
-.logout a:hover{
-  background:rgba(255,255,255,0.08);
-}
-  
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
-
-body{
-  background:#f7f7f7;
 }
 
 /* NAVBAR */
@@ -508,9 +510,19 @@ padding-right:320px;
   </div>
 
 </section>
+<!-- MENU BUTTON -->
+
+<div class="menu-btn" onclick="openMenu()">
+  ☰
+</div>
+
 <!-- SIDE MENU -->
 
-<div class="side-menu">
+<div class="side-menu" id="sideMenu">
+
+  <div class="close-btn" onclick="closeMenu()">
+    ✕
+  </div>
 
   <div class="side-logo">
     FinNova
@@ -528,9 +540,19 @@ padding-right:320px;
 
   </div>
 
-  <div class="logout">
-    <a href="">🚪 Log Out</a>
-  </div>
+</div>
+
+<script>
+
+function openMenu(){
+  document.getElementById("sideMenu").style.right = "0";
+}
+
+function closeMenu(){
+  document.getElementById("sideMenu").style.right = "-320px";
+}
+
+</script>
 
 </div>
 </body>
