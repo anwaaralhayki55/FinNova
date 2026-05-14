@@ -19,49 +19,48 @@
 }
 
 body{
-  background:#f8f8f8;
+  background:#f7f7f7;
 }
 
 /* NAVBAR */
 
 nav{
   width:100%;
-  padding:25px 6%;
+  padding:30px 7%;
   display:flex;
   justify-content:space-between;
   align-items:center;
   position:absolute;
+  top:0;
+  left:0;
   z-index:100;
 }
 
 .logo{
-  font-size:32px;
+  font-size:38px;
   font-weight:700;
   color:#f0d08b;
 }
 
 .nav-links{
   display:flex;
-  gap:35px;
+  gap:40px;
 }
 
 .nav-links a{
   text-decoration:none;
   color:white;
-  font-size:16px;
-  transition:0.3s;
-}
-
-.nav-links a:hover{
-  color:#f0d08b;
+  font-size:17px;
+  font-weight:500;
 }
 
 .nav-btn{
   background:#f0d08b;
   color:#07140f;
-  padding:14px 30px;
   border:none;
-  border-radius:14px;
+  padding:15px 35px;
+  border-radius:16px;
+  font-size:16px;
   font-weight:600;
   cursor:pointer;
 }
@@ -69,44 +68,51 @@ nav{
 /* HERO */
 
 .hero{
-  width:100%;
-  min-height:100vh;
 
-  background-image:url('hero-bg.PNG');
-  background-size:55%;
-  background-position:right center;
+  width:95%;
+  margin:auto;
+  margin-top:20px;
+
+  min-height:95vh;
+
+  border-radius:35px;
+
+  background:
+  linear-gradient(to right, rgba(4,12,10,0.95), rgba(4,12,10,0.4)),
+  url('hero-bg.PNG');
+
+  background-size:cover;
+  background-position:center;
   background-repeat:no-repeat;
-  background-color:#07140f;
 
-  padding:170px 6% 80px;
+  padding:180px 7% 60px;
 
-  border-bottom-left-radius:40px;
-  border-bottom-right-radius:40px;
+  position:relative;
 
   overflow:hidden;
 }
 
-.hero-text{
-  width:55%;
+.hero-content{
+  width:50%;
 }
 
-.hero-text h1{
-  font-size:85px;
+.hero-content h1{
+  font-size:88px;
   line-height:1.05;
   color:white;
   margin-bottom:25px;
   font-weight:700;
 }
 
-.hero-text span{
+.hero-content span{
   color:#f0d08b;
 }
 
-.hero-text p{
+.hero-content p{
   color:#d8d8d8;
-  font-size:20px;
+  font-size:22px;
   line-height:1.8;
-  width:80%;
+  width:90%;
   margin-bottom:40px;
 }
 
@@ -123,7 +129,7 @@ nav{
   border:none;
   padding:18px 40px;
   border-radius:16px;
-  font-size:17px;
+  font-size:18px;
   font-weight:600;
   cursor:pointer;
 }
@@ -134,7 +140,7 @@ nav{
   color:white;
   padding:18px 40px;
   border-radius:16px;
-  font-size:17px;
+  font-size:18px;
   font-weight:600;
   cursor:pointer;
 }
@@ -142,16 +148,17 @@ nav{
 /* STATS */
 
 .stats{
-  width:85%;
-  margin-top:70px;
+  width:90%;
 
   background:rgba(255,255,255,0.08);
 
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(12px);
 
   border-radius:30px;
 
   padding:35px;
+
+  margin-top:70px;
 
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -165,26 +172,26 @@ nav{
 
 .stat-box h2{
   color:#f0d08b;
-  font-size:38px;
+  font-size:40px;
   margin-bottom:10px;
 }
 
 .stat-box p{
-  color:#d6d6d6;
+  color:#d8d8d8;
   font-size:16px;
 }
 
 /* FEATURES */
 
 .features{
-  padding:100px 6%;
+  padding:100px 7%;
 }
 
 .features-title{
   text-align:center;
-  font-size:52px;
-  color:#07140f;
+  font-size:55px;
   margin-bottom:70px;
+  color:#07140f;
 }
 
 .features-grid{
@@ -199,7 +206,7 @@ nav{
   padding:40px 30px;
   text-align:center;
 
-  box-shadow:0 10px 25px rgba(0,0,0,0.05);
+  box-shadow:0 10px 25px rgba(0,0,0,0.06);
 
   transition:0.3s;
 }
@@ -214,9 +221,9 @@ nav{
 }
 
 .feature-card h3{
-  color:#07140f;
+  font-size:25px;
   margin-bottom:15px;
-  font-size:24px;
+  color:#07140f;
 }
 
 .feature-card p{
@@ -228,16 +235,11 @@ nav{
 
 @media(max-width:1100px){
 
-  .hero{
-    background-size:75%;
-    background-position:right bottom;
-  }
-
-  .hero-text{
+  .hero-content{
     width:100%;
   }
 
-  .hero-text h1{
+  .hero-content h1{
     font-size:65px;
   }
 
@@ -254,15 +256,14 @@ nav{
   }
 
   .hero{
-    background-size:90%;
-    padding-top:140px;
+    padding-top:150px;
   }
 
-  .hero-text h1{
-    font-size:48px;
+  .hero-content h1{
+    font-size:45px;
   }
 
-  .hero-text p{
+  .hero-content p{
     width:100%;
     font-size:18px;
   }
@@ -278,7 +279,6 @@ nav{
 }
 
 </style>
-
 </head>
 
 <body>
@@ -309,14 +309,14 @@ nav{
 
 <section class="hero">
 
-  <div class="hero-text">
+  <div class="hero-content">
 
     <h1>
       Take control of <span>your money</span>
     </h1>
 
     <p>
-      FinNova helps you manage your finances, save more, and achieve your financial goals with smart tracking and AI-powered insights.
+      FinNova helps you manage your finances, save more, and achieve your goals with smart AI-powered insights.
     </p>
 
     <div class="hero-buttons">
@@ -378,7 +378,7 @@ nav{
       <h3>Smart Tracking</h3>
 
       <p>
-        Track your income and expenses in real-time with advanced analytics.
+        Track income and expenses in real-time with advanced analytics.
       </p>
 
     </div>
@@ -390,7 +390,7 @@ nav{
       <h3>Set Goals</h3>
 
       <p>
-        Create saving goals and stay motivated to achieve them faster.
+        Create savings goals and stay motivated to achieve them faster.
       </p>
 
     </div>
@@ -414,7 +414,7 @@ nav{
       <h3>Secure & Private</h3>
 
       <p>
-        Your data is protected with high-level security and encryption.
+        Your data is protected with high-level encryption and security.
       </p>
 
     </div>
