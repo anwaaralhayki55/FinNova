@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FinNova Login</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:
+  linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+  url('hero-bg.PNG');
+
+  background-size:cover;
+  background-position:center;
+
+  overflow:hidden;
+}
+
+/* LANGUAGE BUTTON */
+
+.language-btn{
+  position:absolute;
+  top:25px;
+  right:25px;
+
+  background:#f0d08b;
+  color:#07140f;
+
+  border:none;
+  border-radius:14px;
+
+  padding:12px 22px;
+
+  font-size:16px;
+  font-weight:600;
+
+  cursor:pointer;
+
+  z-index:1000;
+}
+
+/* LOGIN BOX */
+
+.login-container{
+
+  width:900px;
+  max-width:95%;
+
+  background:rgba(5,15,12,0.82);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(10px);
+
+  border-radius:35px;
+
+  overflow:hidden;
+
+  display:flex;
+
+  box-shadow:0 20px 50px rgba(0,0,0,0.4);
+}
+
+/* LEFT SIDE */
+
+.login-left{
+
+  width:45%;
+
+  padding:60px 45px;
+
+  color:white;
+}
+
+.logo{
+  font-size:48px;
+  font-weight:700;
+  color:#f0d08b;
+
+  margin-bottom:40px;
+}
+
+.login-title{
+  font-size:34px;
+  font-weight:700;
+
+  margin-bottom:10px;
+}
+
+.login-subtitle{
+  color:#cfcfcf;
+  font-size:15px;
+
+  margin-bottom:35px;
+}
+
+/* INPUTS */
+
+.input-box{
+  margin-bottom:20px;
+}
+
+.input-box input{
+
+  width:100%;
+
+  padding:16px 18px;
+
+  border:none;
+  outline:none;
+
+  border-radius:14px;
+
+  background:rgba(255,255,255,0.08);
+
+  color:white;
+
+  font-size:15px;
+}
+
+.input-box input::placeholder{
+  color:#cccccc;
+}
+
+/* FORGOT */
+
+.forgot{
+  text-align:right;
+  margin-bottom:25px;
+}
+
+.forgot a{
+  color:#f0d08b;
+  text-decoration:none;
+  font-size:14px;
+}
+
+/* BUTTON */
+
+.login-btn{
+
+  width:100%;
+
+  padding:16px;
+
+  border:none;
+
+  border-radius:14px;
+
+  background:#f0d08b;
+  color:#07140f;
+
+  font-size:17px;
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.login-btn:hover{
+  transform:scale(1.02);
+}
+
+/* SIGN UP */
+
+.signup{
+  text-align:center;
+
+  margin-top:25px;
+
+  color:#d6d6d6;
+  font-size:15px;
+}
+
+.signup a{
+  color:#f0d08b;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* RIGHT SIDE */
+
+.login-right{
+
+  width:55%;
+
+  background:url('hero-bg.PNG');
+
+  background-size:cover;
+  background-position:center;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:850px){
+
+  .login-container{
+    flex-direction:column;
+  }
+
+  .login-left{
+    width:100%;
+  }
+
+  .login-right{
+    width:100%;
+    height:350px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LANGUAGE BUTTON -->
+
+<button class="language-btn" onclick="toggleLanguage()" id="langBtn">
+العربية
+</button>
+
+<!-- LOGIN -->
+
+<div class="login-container">
+
+  <!-- LEFT -->
+
+  <div class="login-left">
+
+    <div class="logo">
+      FinNova
+    </div>
+
+    <h1 class="login-title" id="title">
+      Welcome Back!
+    </h1>
+
+    <p class="login-subtitle" id="subtitle">
+      Please login to your account
+    </p>
+
+    <div class="input-box">
+      <input type="email" placeholder="Email" id="email">
+    </div>
+
+    <div class="input-box">
+      <input type="password" placeholder="Password" id="password">
+    </div>
+
+    <div class="forgot">
+      <a href="#" id="forgot">Forgot Password?</a>
+    </div>
+
+    <button class="login-btn" id="loginBtn">
+      Login
+    </button>
+
+    <div class="signup">
+      <span id="signupText">
+        Don't have an account?
+      </span>
+
+      <a href="#" id="signupLink">
+        Sign up
+      </a>
+    </div>
+
+  </div>
+
+  <!-- RIGHT -->
+
+  <div class="login-right"></div>
+
+</div>
+
+<script>
+
+/* SAVE LANGUAGE */
+
+let currentLang = localStorage.getItem("language") || "en";
+
+function applyLanguage(){
+
+  if(currentLang === "ar"){
+
+    document.documentElement.lang = "ar";
+    document.body.style.direction = "rtl";
+
+    document.getElementById("langBtn").innerHTML = "English";
+
+    document.getElementById("title").innerHTML = "مرحباً بعودتك!";
+    document.getElementById("subtitle").innerHTML = "سجل دخولك إلى حسابك";
+
+    document.getElementById("email").placeholder = "البريد الإلكتروني";
+    document.getElementById("password").placeholder = "كلمة المرور";
+
+    document.getElementById("forgot").innerHTML = "نسيت كلمة المرور؟";
+
+    document.getElementById("loginBtn").innerHTML = "تسجيل الدخول";
+
+    document.getElementById("signupText").innerHTML = "ليس لديك حساب؟";
+
+    document.getElementById("signupLink").innerHTML = "إنشاء حساب";
+
+  }
+
+  else{
+
+    document.documentElement.lang = "en";
+    document.body.style.direction = "ltr";
+
+    document.getElementById("langBtn").innerHTML = "العربية";
+
+    document.getElementById("title").innerHTML = "Welcome Back!";
+    document.getElementById("subtitle").innerHTML = "Please login to your account";
+
+    document.getElementById("email").placeholder = "Email";
+    document.getElementById("password").placeholder = "Password";
+
+    document.getElementById("forgot").innerHTML = "Forgot Password?";
+
+    document.getElementById("loginBtn").innerHTML = "Login";
+
+    document.getElementById("signupText").innerHTML = "Don't have an account?";
+
+    document.getElementById("signupLink").innerHTML = "Sign up";
+
+  }
+
+}
+
+/* TOGGLE */
+
+function toggleLanguage(){
+
+  if(currentLang === "en"){
+    currentLang = "ar";
+  }
+
+  else{
+    currentLang = "en";
+  }
+
+  localStorage.setItem("language", currentLang);
+
+  applyLanguage();
+}
+
+applyLanguage();
+
+</script>
+
+</body>
+</html>
